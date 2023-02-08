@@ -1,0 +1,19 @@
+.category{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img{
+    height: 60vh;
+  }
+
+  .link{
+    position: absolute;
+    z-index: 1;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+}

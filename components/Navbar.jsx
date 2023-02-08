@@ -1,8 +1,9 @@
 import Image from 'next/image'
+import styles from '@/styles/navbar.module.scss'
 
 export default function Navbar(){
   return (
-    <div>
+    <div className={styles.navbar}>
       <Image src='/menu.svg' height={20} width={20} />
       <span><b>A</b>.DESIGN</span>
       <div>

@@ -1,0 +1,34 @@
+.hero{
+  background-color: #EFEFEF;
+  height: 50vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  span{
+    font-size: 2rem;
+  }
+
+  button{
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 0.5rem 4rem;
+    background-color: transparent;
+
+    .linkHero{
+      color: #000000;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+  }
+}
+
+.categoryContainer{
+  display: flex;
+  overflow-x: scroll;
+  gap: 1rem;
+}
