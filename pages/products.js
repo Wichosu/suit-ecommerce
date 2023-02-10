@@ -1,6 +1,7 @@
 import ProductCard from "@/components/ProductCard"
 import SortBy from "@/components/SortBy"
 import Filter from "@/components/Filter"
+import styles from "@/styles/products.module.scss"
 
 //Dummy data
 const products = [
@@ -17,8 +18,10 @@ export default function Products(){
     <>
       <div>
         {/**Path component, tells the user the current category and subcategory */}
-        <Filter />
-        <SortBy />
+        <div className={styles.grid}>
+          <Filter />
+          <SortBy />
+        </div>
       </div>
       {products.map((product) => 
         <ProductCard
