@@ -1,0 +1,27 @@
+.entry{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+
+  div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+
+    span{
+      font-size: 0.75rem;
+      color: #555555;
+    }
+
+    p{
+      font-size: 1rem;
+    }
+  }
+
+  img{
+    width: 30%;
+    object-fit: cover;
+  }
+}

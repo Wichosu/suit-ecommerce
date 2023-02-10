@@ -1,15 +1,22 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@/styles/index.module.scss'
 import Category from '@/components/Category'
+import JournalEntry from '@/components/JournalEntry'
 
-//Dummy images
+//Dummy categories
 const hero = `https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
 const categories = [
   {img: 'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'T-shirts'},
   {img: 'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'Knit'},
   {img: 'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'Suit'}
+]
+
+//Dummy Entries for Journal
+const entries = [
+  {title: 'Aquatic outfit', desc: 'This is an aquatic demo outfit, very cheap and short', img:'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+  {title: 'Elegant outfit', desc: 'Elegant demo for elegant outfit, extremely popular with the ladies', img:'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+  {title: 'Sports outfit', desc: 'This is an exotic demo for a sports outfit, it\' a very pretty and exotic suit you must get it while you still can', img:'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
 ]
 
 export default function Home() {
@@ -37,12 +44,19 @@ export default function Home() {
         )}
       </div>
       <div>
-        <span>The Journal</span>
-        {/*Journal component, make sure they only have hr on top */}
+        <h2 className={styles.journal}>The Journal</h2>
+        {entries.map((entry) => 
+          <JournalEntry
+            key={entry}
+            title={entry.title}
+            desc={entry.desc}
+            img={entry.img}
+          />
+        )}
         <hr />
       </div>
-      <div>
-        <h2>Georgia Finest Fabric Weavers</h2>
+      <div className={styles.discover}>
+        <h2>Georgia Finest<br/>Fabric Weavers</h2>
         <span>Build Our Fabrics</span>
         <button>Discover</button>
       </div>

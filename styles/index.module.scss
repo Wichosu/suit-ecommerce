@@ -17,6 +17,7 @@
     border-radius: 4px;
     padding: 0.5rem 4rem;
     background-color: transparent;
+    cursor: pointer;
 
     .linkHero{
       color: #000000;
@@ -31,4 +32,41 @@
   display: flex;
   overflow-x: scroll;
   gap: 1rem;
+}
+
+.journal{
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.discover{
+  background-image: url('https://images.pexels.com/photos/2990775/pexels-photo-2990775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #EEEEEE;
+
+  h2{
+    margin-top: 8rem;
+  }
+
+  span{
+    margin-top: 1rem;
+  }
+
+  button{
+    width: fit-content;
+    margin: 3rem 0;
+    padding: 0.75rem 4rem;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid rgba(#EEEEEE, 0.4);
+    color: #EEEEEE;
+    cursor: pointer;
+  }
 }
