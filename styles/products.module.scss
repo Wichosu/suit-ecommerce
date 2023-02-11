@@ -1,4 +1,11 @@
-.grid{
-  display: flex;
-  justify-content: space-evenly;
+.toolbar{
+  padding: 1rem 0;
+  background-color: white;
+  position: sticky;
+  top: 0;
+
+  div{
+    display: flex;
+    justify-content: space-evenly;
+  }
 }

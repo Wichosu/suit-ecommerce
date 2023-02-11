@@ -16,9 +16,11 @@ const products = [
 export default function Products(){
   return (
     <>
-      <div>
+      {/*! Idea: move this to a personal component call toolbar, it must be renden inside the navbar
+      when the user is on the products page, use router to now the current page and render only in products */}
+      <div className={styles.toolbar}>
         {/**Path component, tells the user the current category and subcategory */}
-        <div className={styles.grid}>
+        <div>
           <Filter />
           <SortBy />
         </div>
