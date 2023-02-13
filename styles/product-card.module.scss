@@ -3,6 +3,7 @@
   img{
     width: 100%;
     cursor: pointer;
+    object-fit: cover;
   }
 
   .text{
@@ -27,6 +28,7 @@
       .image{
         width: fit-content;
         cursor: pointer;
+        object-fit: none;
       }
     }
 

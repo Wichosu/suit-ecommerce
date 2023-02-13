@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from '@/styles/navbar.module.scss'
-import Toolbar from './toolbar';
+import Toolbar from './Toolbar';
 import { useRouter } from 'next/router';
 
 export default function Navbar(){
