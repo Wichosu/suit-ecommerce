@@ -8,7 +8,7 @@ export default function ProductView({ img, name, desc, price}){
         <img className={styles.product} src={img} alt='' />
         <img 
           className={styles.portfolio}
-          src={'/portfolio.svg'} 
+          src={'/portfolioBg.svg'} 
           alt='' 
         />
         {/**Make logo with background */}

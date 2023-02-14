@@ -1,0 +1,36 @@
+.menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 85vw;
+  height: 100vh;
+  background-color: #EEEEEE;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 111;
+  padding-left: 1rem;
+
+  ul, div{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  ul li{
+    position: relative;
+    list-style: none;
+
+    &::after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 90%;
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid #AAAAAA;
+      border-right: 2px solid #AAAAAA;
+      transform: rotate(45deg);
+    }
+  }
+}
