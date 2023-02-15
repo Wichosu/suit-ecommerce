@@ -1,4 +1,5 @@
 import styles from '@/styles/menu.module.scss'
+import Link from 'next/link'
 
 //dummy data
 const data = [
@@ -7,28 +8,42 @@ const data = [
   {type: 'Accessories'},
   {type: 'Design Your Own'},
 ]
-/**Make new arrivals and Journal indepent from ul element
- * each one should have it's own div or span
- * create a search icon
- */
+//TODO Create a search icon
+export default function Menu({ toggle, setToggle }){
 
-export default function Menu(){
+  const showMenu = toggle
+  ? { transform: 'translateX(0%)'}
+  : { transform: 'translateX(-100%)'}
+
+  function hideMenu(){
+    setToggle(!toggle)
+  }
+
   return (
-    <div className={styles.menu}>
+    <div 
+      className={styles.menu}
+      style={showMenu}
+      onMouseLeave={hideMenu}
+    >
       <img src='/save.svg' alt='' />
       <ul>
-        <li className={styles.arrival}>New Arrivals</li>
+        <Link className={styles.link} href=''>New Arrivals</Link>
         {data.map((type) => 
           <li
             key={JSON.stringify(type)}
           >
-            {type.type}
+            <Link
+              className={styles.link}
+              href=''
+            >
+              {type.type}
+            </Link>
           </li>
         )}
       </ul>
       <div>
         <p>Journal</p>
-        <p>Stores</p>
+        <p className={styles.stores}>Stores</p>
       </div>
       <button>language</button>
     </div>
