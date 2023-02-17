@@ -1,5 +1,6 @@
 import styles from '@/styles/menu.module.scss'
 import Link from 'next/link'
+import { useMenu } from '@/zustand/stores'
 
 //dummy data
 const data = [
@@ -9,41 +10,58 @@ const data = [
   {type: 'Design Your Own'},
 ]
 //TODO Create a search icon
-export default function Menu({ toggle, setToggle }){
+export default function Menu(){
+  const menu = useMenu((state) => state.menu)
+  const hideMenu = useMenu((state) => state.hideMenu)
 
-  const showMenu = toggle
+  const showMenu = menu
   ? { transform: 'translateX(0%)'}
   : { transform: 'translateX(-100%)'}
-
-  function hideMenu(){
-    setToggle(!toggle)
-  }
 
   return (
     <div 
       className={styles.menu}
       style={showMenu}
-      onMouseLeave={hideMenu}
     >
       <img src='/save.svg' alt='' />
       <ul>
-        <Link className={styles.link} href=''>New Arrivals</Link>
+        <Link 
+          className={styles.link} 
+          href=''
+          onClick={hideMenu}
+        >
+          New Arrivals
+        </Link>
         {data.map((type) => 
-          <li
+          <Link
+            className={styles.link}
             key={JSON.stringify(type)}
+            onClick={hideMenu}
+            href=''
           >
-            <Link
-              className={styles.link}
+            <li
               href=''
             >
               {type.type}
-            </Link>
-          </li>
+            </li>
+          </Link>
         )}
       </ul>
       <div>
-        <p>Journal</p>
-        <p className={styles.stores}>Stores</p>
+        <Link
+          className={styles.link}
+          onClick={hideMenu}
+          href=''
+          >
+            Journal
+          </Link>
+        <Link
+          className={styles.stores}
+          onClick={hideMenu}
+          href=''
+        >
+          Stores
+        </Link>
       </div>
       <button>language</button>
     </div>

@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@/styles/navbar.module.scss'
-import Toolbar from './Toolbar';
-import Menu from './Menu';
-import { useRouter } from 'next/router';
+import Toolbar from './Toolbar'
+import Menu from './Menu'
+import { useRouter } from 'next/router'
+import { useMenu } from '@/zustand/stores'
 
 export default function Navbar(){
   const router = useRouter();
-  const [menu, setMenu] = useState(false);
+  const showMenu = useMenu((state) => state.showMenu)
 
   return (
     <>
@@ -18,7 +17,7 @@ export default function Navbar(){
             className={styles.menu}
             src='/menu.svg'
             alt=''
-            onClick={() => setMenu(!menu)}
+            onClick={showMenu}
           />
           <Link className={styles.link} href='/'><b>A</b>.DESIGN</Link>
           <div>
@@ -29,7 +28,7 @@ export default function Navbar(){
         </div>
         {router.asPath === '/products' && <Toolbar />}
       </div>
-      <Menu toggle={menu} setToggle={setMenu} />
+      <Menu />
     </>
   )
 }

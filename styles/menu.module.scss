@@ -11,7 +11,7 @@
   padding-left: 1rem;
   padding-top: 1.25rem;
   z-index: 110;
-  transform: translateX(-100%);
+  transition: transform 250ms ease;
 
   img{
     width: 1rem;
@@ -30,7 +30,6 @@
     &::after{
       content: '';
       position: absolute;
-      top: 50%;
       left: 90%;
       width: 8px;
       height: 8px;
@@ -46,10 +45,11 @@
   }
 
   .stores{
+    text-decoration: none;
+    color: #222222;
     &::after{
       content: '';
       position: absolute;
-      top: 50%;
       left: 90%;
       width: 8px;
       height: 8px;

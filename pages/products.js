@@ -1,4 +1,6 @@
 import ProductCard from "@/components/ProductCard"
+import SortBy from "@/components/SortBy"
+import { useSortBy } from "@/zustand/stores"
 
 //Dummy data
 const products = [
@@ -11,6 +13,8 @@ const products = [
 ]
 
 export default function Products(){
+  const sortBy = useSortBy((state) => state.sortBy)
+
   return (
     <>
       {products.map((product) => 
@@ -22,6 +26,9 @@ export default function Products(){
           price={product.price}
         />
       )}
+      {
+        sortBy && <SortBy />
+      }
     </>
   )
 }

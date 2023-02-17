@@ -37,7 +37,7 @@ export default function Home() {
       <div className={styles.categoryContainer}>
         {categories.map((category) => 
           <Category 
-            key={category} 
+            key={JSON.stringify(category)} 
             img={category.img} 
             name={category.name} 
           />
@@ -47,7 +47,7 @@ export default function Home() {
         <h2 className={styles.journal}>The Journal</h2>
         {entries.map((entry) => 
           <JournalEntry
-            key={entry}
+            key={JSON.stringify(entry)}
             title={entry.title}
             desc={entry.desc}
             img={entry.img}

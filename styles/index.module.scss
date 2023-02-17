@@ -31,6 +31,7 @@
 .categoryContainer{
   display: flex;
   overflow-x: scroll;
+  scrollbar-width: none;
   gap: 1rem;
 }
 
