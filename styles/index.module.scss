@@ -33,6 +33,10 @@
   overflow-x: scroll;
   scrollbar-width: none;
   gap: 1rem;
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
 }
 
 .journal{
