@@ -3,9 +3,14 @@ import { useSortBy } from '@/zustand/stores';
 
 export default function SortBy(){
   const hideSortBy = useSortBy((state) => state.hideSortBy)
+  const sort = useSortBy((state) => state.sortBy)
+
+  const display = sort
+  ? {}
+  : {display: 'none'}
 
   return (
-    <div className={styles.sortBy}>
+    <div className={styles.sortBy} style={display}>
       <img
         src=''
         alt=''

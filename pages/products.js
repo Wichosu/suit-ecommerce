@@ -26,9 +26,7 @@ export default function Products(){
           price={product.price}
         />
       )}
-      {
-        sortBy && <SortBy />
-      }
+      <SortBy />
     </>
   )
 }
