@@ -11,3 +11,9 @@ export const useSortBy = create((set) => ({
   showSortBy: () => set((state) => ({ sortBy: true})),
   hideSortBy: () => set((state) => ({ sortBy: false}))
 }))
+
+export const useFilter = create((set) => ({
+  filter: false,
+  showFilter: () => set((state) => ({ filter: true})),
+  hideFilter: () => set((state) => ({ filter: false}))
+}))

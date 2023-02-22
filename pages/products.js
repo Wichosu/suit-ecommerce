@@ -1,6 +1,6 @@
 import ProductCard from "@/components/ProductCard"
 import SortBy from "@/components/SortBy"
-import { useSortBy } from "@/zustand/stores"
+import Filter from "@/components/Filter"
 
 //Dummy data
 const products = [
@@ -13,7 +13,6 @@ const products = [
 ]
 
 export default function Products(){
-  const sortBy = useSortBy((state) => state.sortBy)
 
   return (
     <>
@@ -27,6 +26,7 @@ export default function Products(){
         />
       )}
       <SortBy />
+      <Filter />
     </>
   )
 }

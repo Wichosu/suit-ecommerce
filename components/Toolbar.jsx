@@ -1,8 +1,10 @@
 import styles from "@/styles/toolbar.module.scss"
 import { useSortBy } from "@/zustand/stores"
+import { useFilter } from "@/zustand/stores"
 
 export default function Toolbar(){
   const showSortBy = useSortBy((state) => state.showSortBy)
+  const showFilter = useFilter((state) => state.showFilter)
 
   return (
       <div className={styles.toolbar}>
@@ -10,6 +12,7 @@ export default function Toolbar(){
         <div>
           <button
             className={styles.filter}
+            onClick={showFilter}
           >
             Filter
             <span>
