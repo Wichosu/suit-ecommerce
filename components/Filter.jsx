@@ -40,6 +40,7 @@ export default function Filter(){
 
 const Accordion = ({name, options}) => {
   const [expand, setExpand] = useState(false)
+  const [filters, setFilters] = useState([])
   const panel = useRef(null)
 
   const open = expand
@@ -47,8 +48,16 @@ const Accordion = ({name, options}) => {
   : {}
   
   const rotate = expand
-  ? `${styles.accordion} ${styles.active}`
-  : `${styles.accordion}`
+  ? styles.active
+  : ''
+
+  const handleFilter = (option) => {
+    if(filters.includes(option)){
+      setFilters((prev) => prev.filter((e) => e !== option))
+    } else {
+      setFilters((prev) => [...prev, option])
+    }
+  }
 
   return (
     <>
@@ -57,10 +66,21 @@ const Accordion = ({name, options}) => {
         onClick={() => setExpand((prev) => !prev)}
       >
         {name}
+        {filters.length > 0
+        ? <span>{filters.length}</span>
+        : '' 
+        }
       </button>
       <div className={styles.panel} style={open} ref={panel}>
         {options.map((option) =>
-          <button key={option}>{option}</button>
+          <>
+            <input 
+              type='checkbox' 
+              id={option} 
+              onClick={() => handleFilter(option)} 
+            />
+            <label htmlFor={option}>{option}</label>
+          </>
         )}
       </div>
     </>
