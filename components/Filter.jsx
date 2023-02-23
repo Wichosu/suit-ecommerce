@@ -28,6 +28,7 @@ export default function Filter(){
       <div className={styles.container}>
         {filters.map((filter) => 
           <Accordion 
+            key={filter.name}
             name={filter.name} 
             options={filter.options} 
           />
@@ -59,7 +60,7 @@ const Accordion = ({name, options}) => {
       </button>
       <div className={styles.panel} style={open} ref={panel}>
         {options.map((option) =>
-          <button>{option}</button>
+          <button key={option}>{option}</button>
         )}
       </div>
     </>
