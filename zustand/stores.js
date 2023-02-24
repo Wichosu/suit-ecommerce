@@ -14,6 +14,9 @@ export const useSortBy = create((set) => ({
 
 export const useFilter = create((set) => ({
   filter: false,
-  showFilter: () => set((state) => ({ filter: true})),
-  hideFilter: () => set((state) => ({ filter: false}))
+  filters: 0,
+  showFilter: () => set(() => ({ filter: true})),
+  hideFilter: () => set(() => ({ filter: false})),
+  addFilter: () => set((state) => ({filters: state.filters + 1})),
+  removeFilter: () => set((state) => ({filters: state.filters - 1}))
 }))

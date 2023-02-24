@@ -1,6 +1,6 @@
 import styles from '@/styles/filter.module.scss'
 import { useFilter } from '@/zustand/stores'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 const sizes = ['XS', 'S', 'M', 'L', 'XL']
 const colors = ['Blue', 'Magenta', 'Red', 'Yellow', 'Brown',
   'Black', 'Orange', 'Teal', 'Cyan']
@@ -19,7 +19,7 @@ export default function Filter(){
 
   const display = filter
   ? {}
-  : { display: 'none'}
+  : { transform: 'translateX(-100%)'}
 
   return (
     <div className={styles.filter} style={display}>
@@ -42,6 +42,8 @@ const Accordion = ({name, options}) => {
   const [expand, setExpand] = useState(false)
   const [filters, setFilters] = useState([])
   const panel = useRef(null)
+  const addFilter = useFilter((state) => state.addFilter)
+  const removeFilter = useFilter((state) => state.removeFilter)
 
   const open = expand
   ? { maxHeight: `${panel.current.scrollHeight}px`, margin: '1rem 0'}
@@ -49,13 +51,15 @@ const Accordion = ({name, options}) => {
   
   const rotate = expand
   ? styles.active
-  : ''
+  : '' 
 
   const handleFilter = (option) => {
     if(filters.includes(option)){
       setFilters((prev) => prev.filter((e) => e !== option))
+      removeFilter()
     } else {
       setFilters((prev) => [...prev, option])
+      addFilter()
     }
   }
 

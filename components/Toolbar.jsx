@@ -5,6 +5,8 @@ import { useFilter } from "@/zustand/stores"
 export default function Toolbar(){
   const showSortBy = useSortBy((state) => state.showSortBy)
   const showFilter = useFilter((state) => state.showFilter)
+  const filters = useFilter((state) => state.filters)
+  console.log(filters)
 
   return (
       <div className={styles.toolbar}>
@@ -15,9 +17,10 @@ export default function Toolbar(){
             onClick={showFilter}
           >
             Filter
-            <span>
-              1
-            </span>
+            {filters > 0
+            ? <span>{filters}</span>
+            : ''
+            }
           </button>
           <button
             className={styles.sort}
