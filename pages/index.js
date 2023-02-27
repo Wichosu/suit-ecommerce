@@ -26,10 +26,10 @@ export default function Home() {
         <title>Suit Ecommerce</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div className={styles.hero}>{/*Hero container */}
+      <div className={styles.hero}>
         <span>New Season <br />Arrivals</span>
         <button>
-          <Link className={styles.linkHero} href=''>
+          <Link className={styles.linkHero} href='/products'>
             Shop Now
           </Link>
         </button>

@@ -7,11 +7,12 @@
     width: 100%;
     height: 70vh;
     position: relative;
+    background-color: #EEEEEE;
 
     .product{
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .portfolio{
@@ -20,23 +21,32 @@
       left: 10%;
       cursor: pointer;
     }
-
-    .line{
-      position: absolute;
-      width: 10%;
-      top: 95%;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 2px solid #EEEEEE;
-      border-radius: 8px;
-    }
   }
 
   .textContainer{
+    position: relative;
     display: flex;
     flex-direction: column;
-    margin: 0 1rem;
+    padding: 0 1rem;
     gap: 0.5rem;
+
+    .open{
+      position: absolute;
+      top: -30%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 6rem;
+      height: 1rem;
+      border: none;
+      font-size: 2rem;
+      background-color: #EEEEEE;
+      cursor: pointer;
+
+      &::after{
+        content: '\2303';
+      }
+    }
 
     .name{
       display: flex;

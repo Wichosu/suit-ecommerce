@@ -11,10 +11,7 @@ export default function SortBy(){
 
   return (
     <div className={styles.sortBy} style={display}>
-      <img
-        src=''
-        alt=''
-      />
+      <div className={styles.close} onClick={hideSortBy} />
       <p>Sort By</p>
       <div className={styles.options}>
         <div >

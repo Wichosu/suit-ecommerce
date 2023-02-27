@@ -6,12 +6,12 @@ export default function ProductCard({ img, name, desc, price}){
 
   return (
     <div className={styles.container}>
-      <Link href="">
+      <Link href='/product/id'>
         <img src={img} alt='' />
       </Link>
       <div className={styles.text}>
         <div>
-          <Link className={styles.link} href="">
+          <Link className={styles.link} href='/product/id'>
             {name}
           </Link>
           <Image className={styles.image} src={'/save.svg'} width={20} height={20} alt=''  />

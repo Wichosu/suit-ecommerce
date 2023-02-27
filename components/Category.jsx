@@ -5,7 +5,7 @@ export default function Category({img, name}){
   return (
     <div className={styles.category}>
       <img src={img} />
-      <Link className={styles.link} href=''>{name}</Link>
+      <Link className={styles.link} href='/products'>{name}</Link>
     </div>
   )
 }

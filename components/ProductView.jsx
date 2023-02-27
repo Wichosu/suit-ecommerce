@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import styles from '@/styles/product-view.module.scss'
+import { useState } from 'react'
 
 export default function ProductView({ img, name, desc, price}){
+
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
@@ -11,10 +13,9 @@ export default function ProductView({ img, name, desc, price}){
           src={'/portfolioBg.svg'} 
           alt='' 
         />
-        {/**Make logo with background */}
-        <div className={styles.line} />
       </div>
       <div className={styles.textContainer}>
+        <button className={styles.open} />
         <div className={styles.name}>
           <p>{name}</p>
           <p>$ {price}</p>
