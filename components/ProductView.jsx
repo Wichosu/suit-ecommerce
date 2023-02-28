@@ -13,9 +13,9 @@ export default function ProductView({ img, name, desc, price}){
           src={'/portfolioBg.svg'} 
           alt='' 
         />
+        <button className={styles.open} />
       </div>
       <div className={styles.textContainer}>
-        <button className={styles.open} />
         <div className={styles.name}>
           <p>{name}</p>
           <p>$ {price}</p>

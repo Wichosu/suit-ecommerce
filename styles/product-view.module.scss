@@ -21,33 +21,28 @@
       left: 10%;
       cursor: pointer;
     }
+
+    .open{
+      &::after{
+        content: '\1F815';
+        position: absolute;
+        background-color: #EEEEEE;
+        width: 25%;
+        font-size: 1rem;
+        top: 90%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+
   }
 
   .textContainer{
-    position: relative;
     display: flex;
     flex-direction: column;
     padding: 0 1rem;
     gap: 0.5rem;
-
-    .open{
-      cursor: pointer;
-      background-color: transparent;
-      border: none;
-
-      &::after{
-        content: '\2303';
-        position: absolute;
-        top: -25%;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        background-color: #EEEEEE;
-        font-size: 2rem;
-        height: 1rem;
-        width: 6rem;
-      }
-    }
 
     .name{
       display: flex;
