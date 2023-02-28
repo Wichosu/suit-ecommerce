@@ -31,20 +31,21 @@
     gap: 0.5rem;
 
     .open{
-      position: absolute;
-      top: -30%;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 6rem;
-      height: 1rem;
-      border: none;
-      font-size: 2rem;
-      background-color: #EEEEEE;
       cursor: pointer;
+      background-color: transparent;
+      border: none;
 
       &::after{
         content: '\2303';
+        position: absolute;
+        top: -25%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background-color: #EEEEEE;
+        font-size: 2rem;
+        height: 1rem;
+        width: 6rem;
       }
     }
 
