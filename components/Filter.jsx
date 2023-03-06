@@ -1,6 +1,6 @@
 import styles from '@/styles/filter.module.scss'
 import { useFilter } from '@/zustand/stores'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Fragment } from 'react'
 const sizes = ['XS', 'S', 'M', 'L', 'XL']
 const colors = ['Blue', 'Magenta', 'Red', 'Yellow', 'Brown',
   'Black', 'Orange', 'Teal', 'Cyan']
@@ -77,14 +77,14 @@ const Accordion = ({name, options}) => {
       </button>
       <div className={styles.panel} style={open} ref={panel}>
         {options.map((option) =>
-          <>
+          <Fragment key={option}>
             <input 
               type='checkbox' 
               id={option} 
               onClick={() => handleFilter(option)} 
             />
             <label htmlFor={option}>{option}</label>
-          </>
+          </Fragment>
         )}
       </div>
     </>
