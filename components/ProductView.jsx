@@ -38,9 +38,19 @@ export default function ProductView({ img, name, desc, price}){
           <img src='/save.svg' alt='' />
           <button>Select Size</button>
         </div>
-        <div className={styles.accordion}>Details & Care</div>
+        <div 
+          className={styles.accordion} 
+          onClick={() => setExpandDetails((prev) => !prev)}
+        >
+          Details & Care
+        </div>
         <p className={styles.panel}>{dummyInfo.details}</p>
-        <div className={styles.accordion}>Size & Fit</div>
+        <div
+          className={styles.accordion}
+          onClick={() => setExpandSizes((prev) => !prev)}
+        >
+          Size & Fit
+        </div>
         <div className={styles.panel}>
           {dummyInfo.sizes.map((size) => 
             <Fragment key={size}>
@@ -52,7 +62,12 @@ export default function ProductView({ img, name, desc, price}){
             </Fragment>
           )}
         </div>
-        <div className={styles.accordion}>Features</div>
+        <div 
+          className={styles.accordion}
+          onClick={() => setExpandFeatures((prev) => !prev)}
+        >
+          Features
+        </div>
         <ul className={styles.panel}>
           {dummyInfo.features.map((feature) =>
             <li key={feature}>
