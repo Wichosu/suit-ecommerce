@@ -1,6 +1,6 @@
 import styles from '@/styles/filter.module.scss'
 import { useFilter } from '@/zustand/stores'
-import { useState, useRef, useEffect, Fragment } from 'react'
+import { useState, useRef, Fragment } from 'react'
 const sizes = ['XS', 'S', 'M', 'L', 'XL']
 const colors = ['Blue', 'Magenta', 'Red', 'Yellow', 'Brown',
   'Black', 'Orange', 'Teal', 'Cyan']

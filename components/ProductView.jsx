@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from '@/styles/product-view.module.scss'
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useRef } from 'react'
 
 const dummyInfo = {
   details: 'This is a very long and detailed description',
@@ -9,9 +9,7 @@ const dummyInfo = {
 }
 
 export default function ProductView({ img, name, desc, price}){
-  const [expandFeatures, setExpandFeatures] = useState(false)
-  const [expandSizes, setExpandSizes] = useState(false)
-  const [expandDetails, setExpandDetails] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -38,44 +36,71 @@ export default function ProductView({ img, name, desc, price}){
           <img src='/save.svg' alt='' />
           <button>Select Size</button>
         </div>
-        <div 
-          className={styles.accordion} 
-          onClick={() => setExpandDetails((prev) => !prev)}
-        >
-          Details & Care
+        <div className={styles.accordions}>
+          <Accordion name='Details & Care'>
+            <p>{dummyInfo.details}</p>
+          </Accordion>
+          <Accordion name='Size & Fit'>
+            <div className={styles.sizesInputs}>
+              {dummyInfo.sizes.map((size) => 
+                <Fragment key={size}>
+                  <input
+                    type='radio'
+                    id={size}
+                    name='size'
+                  />
+                  <label htmlFor={size}>{size}</label>
+                </Fragment>
+              )}
+            </div>
+          </Accordion>
+          <Accordion name='Features'>
+            <ul>
+              {dummyInfo.features.map((feature) =>
+                <li key={feature}>
+                  {feature}
+                </li>
+              )}
+            </ul>
+          </Accordion>
         </div>
-        <p className={styles.panel}>{dummyInfo.details}</p>
-        <div
-          className={styles.accordion}
-          onClick={() => setExpandSizes((prev) => !prev)}
-        >
-          Size & Fit
-        </div>
-        <div className={styles.panel}>
-          {dummyInfo.sizes.map((size) => 
-            <Fragment key={size}>
-              <input
-                type='checkbox'
-                id={size}
-              />
-              <label htmlFor={size}>{size}</label>
-            </Fragment>
-          )}
-        </div>
-        <div 
-          className={styles.accordion}
-          onClick={() => setExpandFeatures((prev) => !prev)}
-        >
-          Features
-        </div>
-        <ul className={styles.panel}>
-          {dummyInfo.features.map((feature) =>
-            <li key={feature}>
-              {feature}
-            </li>
-          )}
-        </ul>
       </div>
     </div>
+  )
+}
+
+const Accordion = ({name, children}) => {
+  const [expand, setExpand] = useState(false)
+  const panel = useRef(null)
+
+  const expandStyles = expand
+  ? { maxHeight: `calc(${panel.current.scrollHeight}px + 100px)`} 
+  : null 
+
+  const highlightName = expand
+  ? { color: 'black'}
+  : null
+
+  const rotateArrow = expand
+  ? styles.rotateArrow
+  : null
+
+  return(
+    <>
+      <div
+        className={`${styles.accordion} ${rotateArrow}`}
+        onClick={() => setExpand((prev) => !prev)}
+        style={highlightName}
+      >
+        {name}
+      </div>
+      <div
+        ref={panel}
+        style={expandStyles}
+        className={styles.panel}
+      >
+        {children}
+      </div>
+    </>
   )
 }
