@@ -11,6 +11,14 @@ const dummyInfo = {
 export default function ProductView({ img, name, desc, price}){
   const [open, setOpen] = useState(false);
 
+  const openStyles = open
+  ? null 
+  : {top: '75%'} 
+
+  const rotateOpen = open
+  ? styles.rotateOpen
+  : null
+
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
@@ -19,14 +27,15 @@ export default function ProductView({ img, name, desc, price}){
           alt='' 
           className={styles.img}
         />
-        <img 
-          src='/portfolioBg.svg' 
-          alt='' 
-          className={styles.portfolio}  
-        />
       </div>
-      <div className={styles.info}>
-        <div className={styles.open} />
+      <div
+        className={styles.info}
+        style={openStyles}
+      >
+        <div
+          className={`${styles.open} ${rotateOpen}`}
+          onClick={() => setOpen((prev) => !prev)}
+        />
         <div className={styles.price}>
           <p>{name}</p>
           <p>$ {price}</p>
@@ -74,7 +83,7 @@ const Accordion = ({name, children}) => {
   const panel = useRef(null)
 
   const expandStyles = expand
-  ? { maxHeight: `calc(${panel.current.scrollHeight}px + 100px)`} 
+  ? { maxHeight: `${panel.current.scrollHeight}px`} 
   : null 
 
   const highlightName = expand
