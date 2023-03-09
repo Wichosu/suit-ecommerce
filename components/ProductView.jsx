@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from '@/styles/product-view.module.scss'
-import { Fragment, useState, useRef } from 'react'
+import { Fragment, useState, useRef, useEffect } from 'react'
 
 const dummyInfo = {
   details: 'This is a very long and detailed description',
@@ -9,7 +9,16 @@ const dummyInfo = {
 }
 
 export default function ProductView({ img, name, desc, price}){
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const [size, setSize] = useState(null)
+
+  const handleButton = () => {
+    if(size === null && !open){
+      setOpen((prev) => !prev)
+    }
+  }
+
+  console.log(size)
 
   const openStyles = open
   ? null 
@@ -43,13 +52,20 @@ export default function ProductView({ img, name, desc, price}){
         <p className={styles.desc}>{desc}</p>
         <div className={styles.buttons}>
           <img src='/save.svg' alt='' />
-          <button>Select Size</button>
+          <button onClick={handleButton}>
+            {size === null
+            ? 'select size'
+            : 'add to shopping bag'}
+          </button>
         </div>
         <div className={styles.accordions}>
           <Accordion name='Details & Care'>
             <p>{dummyInfo.details}</p>
           </Accordion>
-          <Accordion name='Size & Fit'>
+          <Accordion
+            name='Size & Fit' 
+            preExpand={true}
+          >
             <div className={styles.sizesInputs}>
               {dummyInfo.sizes.map((size) => 
                 <Fragment key={size}>
@@ -57,6 +73,7 @@ export default function ProductView({ img, name, desc, price}){
                     type='radio'
                     id={size}
                     name='size'
+                    onClick={() => setSize(size)}
                   />
                   <label htmlFor={size}>{size}</label>
                 </Fragment>
@@ -78,9 +95,15 @@ export default function ProductView({ img, name, desc, price}){
   )
 }
 
-const Accordion = ({name, children}) => {
+const Accordion = ({name, children, preExpand}) => {
   const [expand, setExpand] = useState(false)
   const panel = useRef(null)
+
+  useEffect(() => {
+    if(preExpand){
+      setExpand(true)
+    }
+  }, [])
 
   const expandStyles = expand
   ? { maxHeight: `${panel.current.scrollHeight}px`} 
