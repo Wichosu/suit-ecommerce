@@ -20,3 +20,9 @@ export const useFilter = create((set) => ({
   addFilter: () => set((state) => ({filters: state.filters + 1})),
   removeFilter: () => set((state) => ({filters: state.filters - 1}))
 }))
+
+export const useSave = create((set) => ({
+  save: false,
+  items: [],
+  addItem: (item) => set((state) => ({ items: [...state.items, item]}))
+}))
