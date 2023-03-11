@@ -24,5 +24,7 @@ export const useFilter = create((set) => ({
 export const useSave = create((set) => ({
   save: false,
   items: [],
+  showSave: () => set((state) => ({ save: true})),
+  hideSave: () => set((state) => ({ save: false})),
   addItem: (item) => set((state) => ({ items: [...state.items, item]}))
 }))

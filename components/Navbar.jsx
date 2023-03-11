@@ -2,11 +2,12 @@ import Link from 'next/link'
 import styles from '@/styles/navbar.module.scss'
 import Toolbar from './Toolbar'
 import { useRouter } from 'next/router'
-import { useMenu } from '@/zustand/stores'
+import { useMenu, useSave } from '@/zustand/stores'
 
 export default function Navbar(){
   const router = useRouter();
   const showMenu = useMenu((state) => state.showMenu)
+  const showSave = useSave((state) => state.showSave)
 
   return (
     <>
@@ -21,7 +22,11 @@ export default function Navbar(){
           <Link className={styles.link} href='/'><b>A</b>.DESIGN</Link>
           <div>
             <img src='/person.svg' alt='' />
-            <img src='/save.svg' alt='' />
+            <img
+              src='/save.svg'
+              alt=''
+              onClick={showSave}
+            />
             <img src='/portfolio.svg' alt='' />
           </div>
         </div>

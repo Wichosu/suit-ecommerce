@@ -18,8 +18,6 @@ export default function ProductView({ img, name, desc, price}){
     }
   }
 
-  console.log(size)
-
   const openStyles = open
   ? null 
   : {top: '75%'} 

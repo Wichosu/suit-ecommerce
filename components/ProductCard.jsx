@@ -13,7 +13,11 @@ export default function ProductCard({ img, name, desc, price}){
       </Link>
       <div className={styles.text}>
         <div>
-          <Link className={styles.link} href='/product/id'>
+          <Link 
+            className={styles.link}
+            href='/product/id'
+            style={desc ? null : {fontSize: '1rem'}}
+          >
             {name}
           </Link>
           <Image
@@ -32,8 +36,16 @@ export default function ProductCard({ img, name, desc, price}){
             )}
           />
         </div>
-        <p className={styles.desc}>{desc}</p>
-        <p className={styles.price}>${price}</p>
+        {desc
+        ? <p className={styles.desc}>{desc}</p>
+        : null
+        }
+        <p
+          className={styles.price}
+          style={desc? null: {fontSize: '1rem'}}
+        >
+          ${price}
+        </p>
       </div>
     </div>
   )
