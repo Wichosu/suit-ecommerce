@@ -39,4 +39,25 @@
   hr{
     color: rgba(#F8F8F8, 0.5);
   }
+
+  .buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    button{
+      width: 85%;
+      margin: 0 auto;
+      padding: 1rem 0;
+      text-transform: capitalize;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .checkout{
+      font-size: 1rem;
+      color: white;
+      background-color: #333333;
+    }
+  }
 }

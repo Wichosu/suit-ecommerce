@@ -28,3 +28,8 @@ export const useSave = create((set) => ({
   hideSave: () => set((state) => ({ save: false})),
   addItem: (item) => set((state) => ({ items: [...state.items, item]}))
 }))
+
+export const useCart = create((set) => ({
+  items: [],
+  addItem: (item) => set((state) => ({ items: [...state.items, item]}))
+}))
