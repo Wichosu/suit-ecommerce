@@ -9,8 +9,6 @@ function Save(){
   const slideSave = save
   ? { transform: 'translateX(0%)'}
   : { transform: 'translateX(100%)'}
-  
-  console.log(save)
 
   return (
     <div className={styles.save} style={slideSave}>

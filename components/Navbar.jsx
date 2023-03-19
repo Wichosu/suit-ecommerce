@@ -27,7 +27,14 @@ export default function Navbar(){
               alt=''
               onClick={showSave}
             />
-            <img src='/portfolio.svg' alt='' />
+            <Link
+              href={'/cart'}
+            >
+              <img 
+                src='/portfolio.svg'
+                alt=''
+              />
+            </Link>
           </div>
         </div>
         {router.asPath === '/products' && <Toolbar />}
