@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from '@/styles/product-view.module.scss'
 import { Fragment, useState, useRef, useEffect } from 'react'
+import { useCart } from '@/zustand/stores'
 
 const dummyInfo = {
   details: 'This is a very long and detailed description',
@@ -11,10 +12,13 @@ const dummyInfo = {
 export default function ProductView({ img, name, desc, price}){
   const [open, setOpen] = useState(false)
   const [size, setSize] = useState(null)
+  const addItem = useCart((state) => state.addItem)
 
   const handleButton = () => {
     if(size === null && !open){
       setOpen((prev) => !prev)
+    } else {
+      addItem({ img, name, desc, price })
     }
   }
 

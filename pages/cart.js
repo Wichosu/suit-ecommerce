@@ -1,10 +1,18 @@
 import styles from '@/styles/cart.module.scss'
+import { useCart } from '@/zustand/stores'
 
 export default function Cart(){
+  const items = useCart((state) => state.items)
+
   return(
     <div className={styles.cart}>
       <h1>shopping bag $ </h1>
-      {/**Create a component for products on cart */}
+      {items.map((item) => 
+        <ItemCard
+          key={item}
+          name={item.name}
+        />
+      )}
       <hr />
       <div className={styles.bill}>
         <p className={styles.delivery}>delivery cost <span>free</span></p>
@@ -17,6 +25,14 @@ export default function Cart(){
         <button className={styles.checkout}>checkout</button>
         <button className={styles.paypal}>paypal</button>
       </div>
+    </div>
+  )
+}
+
+const ItemCard = ({name}) => {
+  return (
+    <div className={styles.itemCard}>
+      {name}
     </div>
   )
 }
