@@ -18,7 +18,7 @@ export default function ProductView({ img, name, desc, price}){
     if(size === null && !open){
       setOpen((prev) => !prev)
     } else {
-      addItem({ img, name, desc, price })
+      addItem({ img, name, desc, price, size })
     }
   }
 

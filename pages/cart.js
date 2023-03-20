@@ -11,6 +11,9 @@ export default function Cart(){
         <ItemCard
           key={item}
           name={item.name}
+          img={item.img}
+          price={item.price}
+          size={item.size}
         />
       )}
       <hr />
@@ -29,10 +32,25 @@ export default function Cart(){
   )
 }
 
-const ItemCard = ({name}) => {
+const ItemCard = ({name, img, price, size}) => {
   return (
     <div className={styles.itemCard}>
-      {name}
+      <div className={styles.imgContainer}>
+        <img src={img} alt='' />
+      </div>
+      <div className={styles.textContainer}>
+        <div className={styles.cardHeader}>
+          <h3>{name}</h3>
+          <p>delivery 1 to 7 days (s)</p>
+        </div>
+        <div className={styles.cardDetails}>
+          <p>size {size}</p>
+          <div>
+            <button>Qty: {}</button>
+            <p>$ {price}</p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

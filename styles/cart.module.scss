@@ -66,5 +66,51 @@
 
   .itemCard{
     display: flex;
+
+    .imgContainer{
+      width: 25%;
+
+      img{
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .textContainer{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .cardHeader{
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+  
+        p{
+          color: #555555;
+        }
+      }
+
+      .cardDetails{
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        div{
+          display: flex;
+          justify-content: space-between;
+
+          button{
+            background-color: transparent;
+            border: none;
+          }
+        }
+
+        p{
+          font-weight: 500;
+        }
+      }
+    }
+
   }
 }
