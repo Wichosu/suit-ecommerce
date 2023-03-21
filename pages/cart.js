@@ -63,7 +63,7 @@ const ItemCard = ({name, img, price, size, qty}) => {
         <div className={styles.cardDetails}>
           <p>size {size}</p>
           <div>
-            <p>
+            <p className={styles.qty}>
               Qty:
               <button onClick={redQty}>-</button>
               {qty}
