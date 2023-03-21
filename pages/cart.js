@@ -14,6 +14,7 @@ export default function Cart(){
           img={item.img}
           price={item.price}
           size={item.size}
+          qty={item.qty}
         />
       )}
       <hr />
@@ -32,7 +33,23 @@ export default function Cart(){
   )
 }
 
-const ItemCard = ({name, img, price, size}) => {
+const ItemCard = ({name, img, price, size, qty}) => {
+  const updateItems = useCart((state) => state.updateItems)
+  const items = useCart((state) => state.items)
+  const foundItem = items.find((oldItem) => oldItem.name === name)
+
+  const incQty = () => {
+    foundItem.qty = qty + 1
+    updateItems()
+  }
+
+  const redQty = () => {
+    if(qty > 1){
+      foundItem.qty = qty - 1
+      updateItems()
+    }
+  }
+
   return (
     <div className={styles.itemCard}>
       <div className={styles.imgContainer}>
@@ -46,7 +63,12 @@ const ItemCard = ({name, img, price, size}) => {
         <div className={styles.cardDetails}>
           <p>size {size}</p>
           <div>
-            <button>Qty: {}</button>
+            <p>
+              Qty:
+              <button onClick={redQty}>-</button>
+              {qty}
+              <button onClick={incQty}>+</button>
+            </p>
             <p>$ {price}</p>
           </div>
         </div>

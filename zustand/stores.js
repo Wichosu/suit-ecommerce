@@ -30,14 +30,18 @@ export const useFilter = create((set) => ({
 export const useSave = create((set) => ({
   save: false,
   items: [],
-  showSave: () => set((state) => ({ save: true })),
-  hideSave: () => set((state) => ({ save: false })),
+  showSave: () => set(() => ({ save: true })),
+  hideSave: () => set(() => ({ save: false })),
   addItem: (item) => set((state) => ({ items: [...state.items, item] })),
   removeItem: (item) => set((state) => ({ items: state.items.filter((prev) => prev !== item) }))
 }))
 
 export const useCart = create((set) => ({
   items: [],
+  /**
+   * Remember to only add unique items if item is repeated ignored
+   */
   addItem: (item) => set((state) => ({ items: [...state.items, item] })),
-  removeItem: (item) => set((state) => ({ items: state.items.filter((prev) => prev !== item) }))
+  removeItem: (item) => set((state) => ({ items: state.items.filter((prev) => prev !== item) })),
+  updateItems: () => set((state) => ({ items: [...state.items] }))
 }))
