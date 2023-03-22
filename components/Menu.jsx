@@ -63,7 +63,6 @@ export default function Menu(){
           Stores
         </Link>
       </div>
-      <button>language</button>
     </div>
   )
 }

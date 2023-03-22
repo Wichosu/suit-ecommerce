@@ -43,7 +43,7 @@ export default function Home() {
           />
         )}
       </div>
-      <div>
+      <div className={styles.journalContainer}>
         <h2 className={styles.journal}>The Journal</h2>
         {entries.map((entry) => 
           <JournalEntry

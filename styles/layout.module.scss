@@ -1,0 +1,18 @@
+$tablet: 768px;
+$desktop: 1024px;
+
+.layout{
+  max-width: $tablet;
+}
+
+@media (min-width: $tablet){
+  .layout{
+    max-width: $desktop;
+  }
+}
+
+@media (min-width: $desktop){
+  .layout{
+    max-width: 1440px;
+  }
+}

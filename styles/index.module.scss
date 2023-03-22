@@ -75,3 +75,28 @@
     cursor: pointer;
   }
 }
+
+$tablet: 768px;
+
+@media (min-width: $tablet){
+  .categoryContainer{
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .journal{
+    font-size: 1.75rem;
+  }
+
+  .journalContainer{
+    margin: 0 auto;
+    max-width: 85%;
+    justify-content: center;
+  }
+
+  .discover{
+    max-width: 85%;
+    margin: 2rem auto;
+  }
+}

@@ -3,6 +3,7 @@ import { useMenu, useSave } from "@/zustand/stores"
 import Menu from "./Menu"
 import Save from "./Save"
 import { Mulish } from "@next/font/google"
+import styles from '@/styles/layout.module.scss'
 
 const mulish = Mulish({ subsets: ['latin'] })
 
@@ -22,7 +23,7 @@ export default function Layout({children}){
   }
 
   return (
-    <div className={mulish.className}>
+    <div className={`${mulish.className} ${styles.layout}`}>
       {menu || save
       ? 
         <div onClick={handleWindows}>
