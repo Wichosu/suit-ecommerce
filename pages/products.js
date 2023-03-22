@@ -1,6 +1,7 @@
 import ProductCard from "@/components/ProductCard"
 import SortBy from "@/components/SortBy"
 import Filter from "@/components/Filter"
+import styles from '@/styles/products.module.scss'
 
 //Dummy data
 const products = [
@@ -16,15 +17,17 @@ export default function Products(){
 
   return (
     <>
-      {products.map((product) => 
-        <ProductCard
-          key={JSON.stringify(product)}
-          img={product.img}
-          name={product.name}
-          desc={product.desc}
-          price={product.price}
-        />
-      )}
+      <div className={styles.products}>
+        {products.map((product) => 
+          <ProductCard
+            key={JSON.stringify(product)}
+            img={product.img}
+            name={product.name}
+            desc={product.desc}
+            price={product.price}
+          />
+        )}
+      </div>
       <SortBy />
       <Filter />
     </>

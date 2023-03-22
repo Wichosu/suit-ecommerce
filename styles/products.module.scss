@@ -1,0 +1,10 @@
+$tablet: 768px;
+$desktop: 1024px;
+
+@media (min-width: $tablet){
+  .products{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
