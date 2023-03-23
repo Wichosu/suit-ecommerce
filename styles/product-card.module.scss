@@ -1,3 +1,5 @@
+@import './variables';
+
 .container{
 
   img{
@@ -21,7 +23,7 @@
         font-weight: 500;
         cursor: pointer;
         text-decoration: none;
-        color: black;
+        color: $black;
       }
 
       .image{
@@ -33,7 +35,7 @@
     }
 
     .desc{
-      color: #666666;
+      color: $gray-6;
     }
 
     .price{

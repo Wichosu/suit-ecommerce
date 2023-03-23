@@ -1,5 +1,7 @@
+@import './variables';
+
 .hero{
-  background-color: #EFEFEF;
+  background-color: $hero-background;
   height: 50vh;
   position: relative;
   display: flex;
@@ -13,14 +15,14 @@
   }
 
   button{
-    border: 1px solid #DDDDDD;
+    border: 1px solid $button-index;
     border-radius: 4px;
     padding: 0.5rem 4rem;
     background-color: transparent;
     cursor: pointer;
 
     .linkHero{
-      color: #000000;
+      color: $link-index;
       text-decoration: none;
       text-transform: uppercase;
     }
@@ -54,7 +56,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  color: #EEEEEE;
+  color: $discover-index;
 
   h2{
     margin-top: 8rem;
@@ -70,13 +72,11 @@
     padding: 0.75rem 4rem;
     background-color: transparent;
     border-radius: 8px;
-    border: 1px solid rgba(#EEEEEE, 0.4);
-    color: #EEEEEE;
+    border: 1px solid rgba($discover-index, 0.4);
+    color: $discover-index;
     cursor: pointer;
   }
 }
-
-$tablet: 768px;
 
 @media (min-width: $tablet){
   .categoryContainer{

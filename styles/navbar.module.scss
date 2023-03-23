@@ -1,3 +1,5 @@
+@import './variables';
+
 .navbar{
   position: sticky;
   z-index: 100;
@@ -8,7 +10,7 @@
     justify-content: space-between;
     align-items: center;
     padding: clamp(0.75rem, 2%, 1rem) clamp(1.75rem, 4%, 2rem);
-    background-color: #FFFFFF;
+    background-color: $white;
     position: sticky;
     top: 0;
 
@@ -20,7 +22,7 @@
   
     .link{
       text-decoration: none;
-      color: #222222;
+      color: $black-2;
       font-size: 0.75rem;
       cursor: pointer;
   

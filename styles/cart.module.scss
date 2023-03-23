@@ -1,14 +1,10 @@
-$checkout: #FFFFFF;
-$background: #F8F8F8;
-$checkoutBg: #333333;
-$pGray: #555555;
-$shadow: #888888;
+@import './variables';
 
 .cart{
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background-color: $background;
+  background-color: $background-cart;
   height: 100vh;
   height: 100svh;
 
@@ -45,7 +41,7 @@ $shadow: #888888;
   }
 
   hr{
-    color: rgba($background, 0.5);
+    color: rgba($background-cart, 0.5);
   }
 
   .buttons{
@@ -66,7 +62,7 @@ $shadow: #888888;
     .checkout{
       font-size: 1rem;
       color: $checkout;
-      background-color: $checkoutBg;
+      background-color: $checkoutBg-cart;
     }
   }
 
@@ -74,7 +70,7 @@ $shadow: #888888;
     display: flex;
     align-self: center;
     max-width: 80%;
-    box-shadow: 0 0 2px $shadow;
+    box-shadow: 0 0 2px $shadow-cart;
     gap: 1rem;
 
     .imgContainer{
@@ -123,7 +119,7 @@ $shadow: #888888;
             button{
               cursor: pointer;
               border: none;
-              box-shadow: 0 0 2px $shadow;
+              box-shadow: 0 0 2px $shadow-cart;
               padding: 0 0.25rem;
               background-color: transparent;
               font-size: 1rem;
