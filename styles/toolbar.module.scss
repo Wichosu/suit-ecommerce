@@ -1,6 +1,8 @@
+@import './variables';
+
 .toolbar{
   padding: 1rem 0;
-  background-color: white;
+  background-color: $white;
   position: sticky;
   top: 0;
 
@@ -13,7 +15,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    border: 1px solid #CCCCCC;
+    border: 1px solid $gray-C;
     border-radius: 4px;
     padding: 0.5rem 3rem;
     background-color: transparent;
@@ -23,7 +25,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #DDDDDD;
+      background-color: $gray-D;
       border-radius: 50%;
       width: 1.5rem;
       height: 1.5rem;
@@ -31,7 +33,7 @@
   }
 
   .sort{
-    border: 1px solid #CCCCCC;
+    border: 1px solid $gray-C;
     border-radius: 4px;
     padding: 0.7rem 4rem;
     background-color: transparent;
@@ -39,8 +41,6 @@
   }
 }
 
-$tablet: 768px;
-$desktop: 1024px;
 @media (min-width: $tablet){
   .toolbar{
     div{

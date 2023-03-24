@@ -1,10 +1,12 @@
+@import './variables';
+
 .save{
   position: fixed;
   top: 0;
   right: 0;
   width: 85%;
   height: 100%;
-  background-color: white;
+  background-color: $white;
   z-index: 110;
   overflow: scroll;
   transition: transform 250ms ease;
@@ -19,7 +21,7 @@
     text-transform: capitalize;
     padding: 12.5%;
     font-weight: 400;
-    background-color: #EEEEEE;
+    background-color: $white-E;
 
     &::before{
       content: '';
@@ -28,8 +30,8 @@
       left: 25%;
       width: 10px;
       height: 5px;
-      border-left: 1px solid black;
-      border-bottom: 1px solid black;
+      border-left: 1px solid $black;
+      border-bottom: 1px solid $black;
       transform: rotate(-45deg) translateY(-50%);
     }
   }
@@ -41,9 +43,6 @@
     min-height: auto;
   }
 }
-
-$tablet: 768px;
-$desktop: 1024px;
 
 @media (min-width: $tablet){
   .save{
