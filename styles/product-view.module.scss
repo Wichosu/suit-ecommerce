@@ -172,3 +172,33 @@
     }
   }
 }
+
+@media (min-width: $desktop){
+  .container{
+    position: static;
+    height: auto;
+    display: flex;
+    justify-content: center;
+
+    .imgContainer{
+      width: 50%;
+      max-height: 100vh;
+    }
+
+    .info{
+      width: 50%;
+      position: static;
+      padding: 1rem 8rem;
+      gap: 2rem;
+
+      .open{
+        pointer-events: none;
+        display: none;
+      }
+
+      .accordions{
+        margin-top: 0;
+      }
+    }
+  }
+}

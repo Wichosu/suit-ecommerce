@@ -12,11 +12,13 @@ const dummyInfo = {
 export default function ProductView({ img, name, desc, price}){
   const [open, setOpen] = useState(false)
   const [size, setSize] = useState(null)
+  const [expandSize, setExpandSize] = useState(0)
   const addItem = useCart((state) => state.addItem)
 
   const handleButton = () => {
-    if(size === null && !open){
-      setOpen((prev) => !prev)
+    if(size === null){
+      setOpen(true)
+      setExpandSize((prev) => prev + 1)
     } else {
       addItem({ img, name, price, size, qty: 1 })
     }
@@ -66,7 +68,7 @@ export default function ProductView({ img, name, desc, price}){
           </Accordion>
           <Accordion
             name='Size & Fit' 
-            preExpand={true}
+            expandListener={expandSize}
           >
             <div className={styles.sizesInputs}>
               {dummyInfo.sizes.map((size) => 
@@ -97,15 +99,15 @@ export default function ProductView({ img, name, desc, price}){
   )
 }
 
-const Accordion = ({name, children, preExpand}) => {
+const Accordion = ({name, children, expandListener}) => {
   const [expand, setExpand] = useState(false)
   const panel = useRef(null)
 
   useEffect(() => {
-    if(preExpand){
+    if(expandListener){
       setExpand(true)
     }
-  }, [])
+  }, [expandListener])
 
   const expandStyles = expand
   ? { maxHeight: `${panel.current.scrollHeight}px`} 
