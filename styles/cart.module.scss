@@ -61,7 +61,7 @@
 
     .checkout{
       font-size: 1rem;
-      color: $checkout;
+      color: $checkout-cart;
       background-color: $checkoutBg-cart;
     }
   }
@@ -95,7 +95,7 @@
         gap: 6px;
   
         p{
-          color: $pGray;
+          color: $pGray-cart;
         }
       }
 

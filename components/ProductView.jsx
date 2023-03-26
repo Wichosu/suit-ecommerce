@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styles from '@/styles/product-view.module.scss'
 import { Fragment, useState, useRef, useEffect } from 'react'
 import { useCart } from '@/zustand/stores'
+import { useSave } from '@/zustand/stores'
 
 const dummyInfo = {
   details: 'This is a very long and detailed description',
@@ -14,6 +15,7 @@ export default function ProductView({ img, name, desc, price}){
   const [size, setSize] = useState(null)
   const [expandSize, setExpandSize] = useState(0)
   const addItem = useCart((state) => state.addItem)
+  const saveItem = useSave((state) => state.addItem)
 
   const handleButton = () => {
     if(size === null){
@@ -55,7 +57,11 @@ export default function ProductView({ img, name, desc, price}){
         </div>
         <p className={styles.desc}>{desc}</p>
         <div className={styles.buttons}>
-          <img src='/save.svg' alt='' />
+          <img
+            src='/save.svg'
+            alt=''
+            onClick={() => saveItem({img, name, desc, price})}
+          />
           <button onClick={handleButton}>
             {size === null
             ? 'select size'
