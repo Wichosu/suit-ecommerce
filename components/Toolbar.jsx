@@ -6,7 +6,6 @@ export default function Toolbar(){
   const showSortBy = useSortBy((state) => state.showSortBy)
   const showFilter = useFilter((state) => state.showFilter)
   const filters = useFilter((state) => state.filters)
-  console.log(filters)
 
   return (
       <div className={styles.toolbar}>

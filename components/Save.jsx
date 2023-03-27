@@ -16,7 +16,8 @@ function Save(){
       <div className={styles.container}>
         {items.map((item) =>
           <ProductCard
-            key={item}
+            key={JSON.stringify(item)}
+            id={item.id}
             img={item.img}
             name={item.name}
             price={item.price}

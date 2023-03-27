@@ -10,20 +10,32 @@ const dummyInfo = {
   features: ['First detail', 'Second important feature', 'third but not least', 'fourt is for luck'],
 }
 
-export default function ProductView({ img, name, desc, price}){
+export default function ProductView({ id, img, name, desc, price}){
   const [open, setOpen] = useState(false)
   const [size, setSize] = useState(null)
   const [expandSize, setExpandSize] = useState(0)
-  const addItem = useCart((state) => state.addItem)
-  const saveItem = useSave((state) => state.addItem)
+  const cartAddItem = useCart((state) => state.addItem)
+  const saveAddItem = useSave((state) => state.addItem)
+  const savedItems = useSave((state) => state.items)
+  const cartItems = useCart((state) => state.items)
 
   const handleButton = () => {
     if(size === null){
       setOpen(true)
       setExpandSize((prev) => prev + 1)
     } else {
-      addItem({ img, name, price, size, qty: 1 })
+      const founded = cartItems.find((e) => e.id === id)
+      if(!founded){
+        cartAddItem({ id, img, name, price, size, qty: 1 })
+      }
     }
+  }
+
+  const handleSave = (item) => {
+    const founded = savedItems.find((e) => e.id === item.id)
+    if(!founded){
+      saveAddItem(item)
+    } 
   }
 
   const openStyles = open
@@ -60,7 +72,7 @@ export default function ProductView({ img, name, desc, price}){
           <img
             src='/save.svg'
             alt=''
-            onClick={() => saveItem({img, name, desc, price})}
+            onClick={() => handleSave({img, name, desc, price})}
           />
           <button onClick={handleButton}>
             {size === null
