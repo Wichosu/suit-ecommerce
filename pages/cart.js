@@ -10,6 +10,7 @@ export default function Cart(){
       {items.map((item) => 
         <ItemCard
           key={item}
+          id={item.id}
           name={item.name}
           img={item.img}
           price={item.price}
@@ -33,10 +34,11 @@ export default function Cart(){
   )
 }
 
-const ItemCard = ({name, img, price, size, qty}) => {
+const ItemCard = ({id, name, img, price, size, qty}) => {
   const updateItems = useCart((state) => state.updateItems)
   const items = useCart((state) => state.items)
-  const foundItem = items.find((oldItem) => oldItem.name === name)
+  const removeItem = useCart((state) => state.removeItem)
+  const foundItem = items.find((oldItem) => oldItem.id === id)
 
   const incQty = () => {
     foundItem.qty = qty + 1
@@ -56,6 +58,10 @@ const ItemCard = ({name, img, price, size, qty}) => {
         <img src={img} alt='' />
       </div>
       <div className={styles.textContainer}>
+        <div 
+          className={styles.close}
+          onClick={() => removeItem(id)}
+        />
         <div className={styles.cardHeader}>
           <h3>{name}</h3>
           <p>delivery 1 to 7 days (s)</p>
