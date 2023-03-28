@@ -4,9 +4,15 @@ import { useCart } from '@/zustand/stores'
 export default function Cart(){
   const items = useCart((state) => state.items)
 
+  const totalPrice = () => {
+    let price = 0
+    items.forEach((item) => price += (item.price * item.qty))
+    return price
+  }
+
   return(
     <div className={styles.cart}>
-      <h1>shopping bag $ </h1>
+      <h1>shopping bag ${totalPrice()} </h1>
       {items.map((item) => 
         <ItemCard
           key={item}
@@ -21,7 +27,7 @@ export default function Cart(){
       <hr />
       <div className={styles.bill}>
         <p className={styles.delivery}>delivery cost <span>free</span></p>
-        <p className={styles.total}>total <span>$</span></p>
+        <p className={styles.total}>total <span>${totalPrice()}</span></p>
       </div>
       <hr />
       {/**Banner or logos */}
