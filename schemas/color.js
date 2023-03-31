@@ -16,4 +16,10 @@ export default defineType({
       type: 'color',
     }),
   ],
+  preview: {
+    select: {
+      title: 'name',
+      media: 'color',
+    },
+  },
 })

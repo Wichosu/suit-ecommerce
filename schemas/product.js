@@ -55,11 +55,11 @@ export default defineType({
       of: [{type: 'reference', to: {type: 'material'}}],
     }),
     defineField({
-      name: 'models',
-      title: 'Models',
+      name: 'designer',
+      title: 'Designer',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'model'}}],
-    }),
+      of: [{type: 'reference', to: {type: 'designer'}}]
+    })
   ],
 
   preview: {
