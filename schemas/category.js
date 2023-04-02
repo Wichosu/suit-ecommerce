@@ -19,5 +19,10 @@ export default defineType({
         maxLength: '40',
       },
     }),
+    defineField({
+      name: 'img',
+      title: 'Image',
+      type: 'image'
+    }),
   ],
 })

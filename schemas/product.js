@@ -14,6 +14,10 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: '100',
+      }
     }),
     defineField({
       name: 'img',
@@ -40,7 +44,7 @@ export default defineType({
       name: 'colors',
       title: 'Colors',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'color'}}],
+      of: [{type: 'reference', to: {type: 'dye'}}],
     }),
     defineField({
       name: 'categories',

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import styles from '@/styles/index.module.scss'
 import Category from '@/components/Category'
 import JournalEntry from '@/components/JournalEntry'
+import groq from 'groq'
 
 //Dummy categories
 const hero = `https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
