@@ -80,9 +80,9 @@
 
 @media (min-width: $tablet){
   .categoryContainer{
-    justify-content: center;
     gap: 3rem;
     margin-top: 2rem;
+    scrollbar-width: auto;
   }
 
   .journal{

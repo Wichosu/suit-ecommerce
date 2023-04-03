@@ -4,14 +4,15 @@ import styles from '@/styles/index.module.scss'
 import Category from '@/components/Category'
 import JournalEntry from '@/components/JournalEntry'
 import groq from 'groq'
+import client from '@/lib/client'
+import imageUrlBuilder from '@sanity/image-url'
+
+function urlFor(source){
+  return imageUrlBuilder(client).image(source)
+}
 
 //Dummy categories
 const hero = `https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
-const categories = [
-  {img: 'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'T-shirts'},
-  {img: 'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'Knit'},
-  {img: 'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'Suit'}
-]
 
 //Dummy Entries for Journal
 const entries = [
@@ -20,7 +21,8 @@ const entries = [
   {title: 'Sports outfit', desc: 'This is an exotic demo for a sports outfit, it\' a very pretty and exotic suit you must get it while you still can', img:'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
 ]
 
-export default function Home() {
+export default function Home({categories}) {
+  console.log(categories)
   return (
     <>
       <Head>
@@ -36,11 +38,11 @@ export default function Home() {
         </button>
       </div>
       <div className={styles.categoryContainer}>
-        {categories.map((category) => 
+        {categories.map(({_id, name, img}) => 
           <Category 
-            key={JSON.stringify(category)} 
-            img={category.img} 
-            name={category.name} 
+            key={_id} 
+            img={urlFor(img)} 
+            name={name} 
           />
         )}
       </div>
@@ -63,4 +65,20 @@ export default function Home() {
       </div>
     </>
   )
+}
+
+export async function getStaticProps(){
+  const query = groq`*[_type == "category"]{
+    _id,
+    name,
+    img
+  }`
+
+  let categories = await client.fetch(query) 
+
+  return {
+    props: {
+      categories
+    }
+  }
 }
