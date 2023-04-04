@@ -11,10 +11,12 @@ function urlFor(source){
   return imageUrlBuilder(client).image(source)
 }
 
-//Dummy categories
 const hero = `https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
 
-//Dummy Entries for Journal
+/**
+ * Supposed to make a blog but decide to ignore
+ * Only using this values as dummy info
+ */
 const entries = [
   {title: 'Aquatic outfit', desc: 'This is an aquatic demo outfit, very cheap and short', img:'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
   {title: 'Elegant outfit', desc: 'Elegant demo for elegant outfit, extremely popular with the ladies', img:'https://images.pexels.com/photos/9771810/pexels-photo-9771810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
@@ -22,7 +24,6 @@ const entries = [
 ]
 
 export default function Home({categories}) {
-  console.log(categories)
   return (
     <>
       <Head>

@@ -3,7 +3,7 @@ import styles from '@/styles/product-card.module.scss'
 import Link from 'next/link'
 import { useSave } from '@/zustand/stores';
 
-export default function ProductCard({ id, img, name, desc, price}){
+export default function ProductCard({ id, img, name, desc, price, slug}){
   const addItem = useSave((state) => state.addItem)
   const savedItems = useSave((state) => state.items)
   const removeItem = useSave((state) => state.removeItem)
@@ -19,16 +19,24 @@ export default function ProductCard({ id, img, name, desc, price}){
     removeItem(item.id)
   }
 
+  const cutText = (text, maxLength) => {
+    if(text.length > maxLength){
+      return text.slice(0, maxLength) + '...';
+    } else {
+      return text;
+    }
+  }
+
   return (
     <div className={styles.container}>
-      <Link href='/product/id'>
+      <Link href={`/product/${slug.current}`}>
         <img src={img} alt='' />
       </Link>
       <div className={styles.text}>
         <div>
           <Link 
             className={styles.link}
-            href='/product/id'
+            href={`/product/${slug.current}`}
             style={desc ? null : {fontSize: '1rem'}}
           >
             {name}
@@ -51,7 +59,7 @@ export default function ProductCard({ id, img, name, desc, price}){
           />
         </div>
         {desc
-        ? <p className={styles.desc}>{desc}</p>
+        ? <p className={styles.desc}>{cutText(desc, 150)}</p>
         : null
         }
         <p
